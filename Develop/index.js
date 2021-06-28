@@ -1,7 +1,9 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
-// const inquirer = require('inquirer');
+const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
+
+// `https://img.shields.io/badge/license-Something-blue`
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -74,14 +76,14 @@ const questions = [
         type: 'list',
             name: 'license',
                 message: 'Choose a license: ',
-                    choices: ['Apache', 'GNU', 'MIT', 'Mozilla', 'Open']
+                    choices: ['Apache', 'GNU', 'MIT', 'Mozilla', 'None']
     },
     {
     type: 'input',
     name: 'usage',
-        message: 'Enter instructions and examples for use',
-            validate: descrInput => {
-                if (descrInput) {
+        message: 'Please enter instructions and examples of usage',
+            validate: usageInput => {
+                if (usageInput) {
                     return true;
                 } else {
                     console.log('Enter instruction to continue');
